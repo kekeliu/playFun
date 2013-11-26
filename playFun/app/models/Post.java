@@ -2,26 +2,28 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.swing.text.html.HTML.Tag;
+import javax.persistence.*;
 
+import play.data.validation.MaxSize;
 import play.db.jpa.Model;
 
 @Entity
 public class Post extends Model{
+
 	public String title;
 	
+	@ManyToOne
+	public User author;
+	
 	@Lob
+	@MaxSize(200) 
 	public String content;
 	public Date postedAt;
 	
-	public Post(String title, String content){
+	public Post(User author, String title, String content){
+		this.author = author;
 		this.title = title;
 		this.content = content;
 		this.postedAt = new Date();
