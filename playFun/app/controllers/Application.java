@@ -9,7 +9,13 @@ import models.*;
 
 public class Application extends Controller {
 
+	static void addUsers(){
+		User user = new User("keke","keke");
+		user.save();
+	}
+	
     public static void index() {
+    	addUsers();
         render();
     }
 

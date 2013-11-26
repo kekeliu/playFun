@@ -22,6 +22,8 @@ public class User extends Model {
 	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
 	public List<Post> posts;
 	
+	public boolean isAdmin;
+	
 	
 	public User(String username, String password){
 		this.username = username;
@@ -46,4 +48,8 @@ public class User extends Model {
 	  public static User connect(String username, String password) {
 	        return find("byUsernameAndPassword", username, password).first();
 	    }
+	  
+	  public String toString(){
+		  return this.username;
+	  }
 }

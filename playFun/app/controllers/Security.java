@@ -15,4 +15,11 @@ public class Security extends Secure.Security {
 	static void onAuthenticated(){
 		Admin.index();
 	}
+	
+	static boolean check(String profile){
+		if("admin".equals(profile)){
+			return User.find("byUsername", connected()).<User>first().isAdmin;
+		}
+		return false;
+	}
 }

@@ -3,7 +3,9 @@
 User(bob):
     username:          bob
     password:       secret
+    isAdmin:        true
     
 User(jeff):
     username:          jeff
-    password:       secret  
+    password:       secret
+    fullname:       Jeff  
